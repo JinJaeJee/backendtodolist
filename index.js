@@ -5,7 +5,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // Replace with your React app's origin
+    origin: "http://localhost:3000",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
@@ -47,10 +47,8 @@ app.delete("/todos/:id", async (req, res) => {
     if (indexToDelete !== -1) {
       item1.splice(indexToDelete, 1);
       res.json({
-        message: "deleted successfully",
+        message: "deleted",
       });
-    } else {
-      res.status(404).json({ error: "Item not found" });
     }
   } catch (err) {
     console.error("Error:", err);
